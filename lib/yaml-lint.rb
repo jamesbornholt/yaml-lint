@@ -65,11 +65,6 @@ class YamlLint
   end
 
   def parse_file(file)
-    unless File.extname(file) =~ /.(yaml|yml)$/
-      error "The extension of the file #{file} should be .yaml or .yml"
-      @error = true
-      return
-    end
     begin
       YAML.load_file(file)
     rescue Exception => err
